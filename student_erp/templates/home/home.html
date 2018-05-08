@@ -2,8 +2,31 @@
 
 {% block body %}
 
+<div class="row">
 
-	<h1>Home</h1>
-	<p>Welcome to {{ name }} hell</p>
+	<div class="row">
+		<div class="col-md-4"></div>
+		<div class="col-md-4 alignC">
+			<h1>Student ERP</h1>
+		</div>
+		<div class="col-md-4"></div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-4"></div>
+		<div class="col-md-4 alignC">
+			<form >
+				<label>Login ID:</label>
+				<input class="form-control" id="email" type="text" name="login_id"><br>
+				<label>Password:</label>
+				<input class="form-control" id="pwd" type="password" name="login_password"><br>
+				<input class="btn btn-default" type="submit" name="Login" value="Login">
+			</form>
+		</div> 
+		<div class="col-md-4"></div>
+	</div>
+
+</div>
+
 
 {% endblock %}
