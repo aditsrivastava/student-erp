@@ -17,10 +17,11 @@ from django.conf.urls import url
 from django.contrib import admin
 
 from login.views import *
-
+from studentApp.views import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$',loginPage),
     url(r'^about/',about),
+    url(r'^index/',indexPage),
 ]

@@ -14,6 +14,6 @@ def indexPage(request):
 				logout(request)
 				return views.loginPage(request)
 
-		return render(request,'home/home.html',{'user':request.user})
+		return render(request,'home/index.html',{'user':request.user})
 	else:
 		return views.loginPage(request)		

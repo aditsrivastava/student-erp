@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="row">
+	<div class="col-md-4">
+		<h1>Welcome {{ user }}</h1>
+	</div>
+	<div class="col-md-4 alignC">
+		<form method="POST">
+			{% csrf_token %}
+			<input 
+				class="btn btn-default" 
+				type="submit" 
+				name="logout" 
+				value="Logout" >
+		</form>
+	</div>
+</div>
+
+
+{% endblock %}
