@@ -24,4 +24,6 @@ urlpatterns = [
     url(r'^$',loginPage),
     url(r'^about/',about),
     url(r'^index/',indexPage),
+    url(r'^index/attendence',attendence),
+    url(r'^logout/',logoutView),
 ]

@@ -1,11 +1,12 @@
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login
+from django.shortcuts import redirect
+
 from .forms import LoginForm
-from studentApp import views
 
 def loginPage(request):
 	if request.user.is_authenticated:
-		return views.indexPage(request)
+		return redirect('/index')
 	else:
 		form = LoginForm(request.POST)
 		if form.is_valid():
@@ -15,9 +16,13 @@ def loginPage(request):
 			if user is not None:
 				login(request, user)
 			if request.user.is_authenticated:
-				return views.indexPage(request)
+				return redirect('/index')
 
-	return render(request,'home/Login_home.html',{})
+	return render(
+		request,
+		'home/Login_home.html',
+		{'displayDrop':'displayNone'}
+	)
 
 
 
