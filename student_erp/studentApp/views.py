@@ -4,12 +4,25 @@ from django.http import HttpResponse
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
+from .models import StudentData
 
 # Create your views here.
 
 @login_required(login_url='/')
 def indexPage(request):
-	return render(request,'home/index.html',{'user':request.user})
+	sdData = StudentData.objects.all().values()[0]
+	del sdData['id']
+	del sdData['name_id']
+	sdData = sdData.items()
+
+	return render(
+		request,
+		'home/index.html',
+		{
+			'user':request.user,
+			'SD':sdData
+		}
+	)
 
 @login_required(login_url='/')
 def attendence(request):
